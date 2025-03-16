@@ -1,0 +1,25 @@
+server:
+  port: 8013
+  servlet:
+    context-path: /custom-path
+spring:
+  cloud:
+    config:
+      enabled: false
+  application:
+    name: servicesales
+  main:
+    allow-bean-definition-overriding: true
+  r2dbc:
+    url: r2dbc:postgresql://ep-autumn-poetry-a2xxj9qc-pooler.eu-central-1.aws.neon.tech:5432/saleshub_dev
+    username: neondb_owner
+    password: 'npg_MwjJ80dHCGIx'
+    pool:
+      enabled: true
+      initial-size: 1
+      max-size: 10
+  config:
+    import: optional:configserver:http://localhost:8888/
+
+
+logging.level.org.springframework.data.r2dbc: DEBUG
