@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.0</version>
+		<version>3.4.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.saleshub.ms</groupId>
 	<artifactId>servicesales</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>${project.groupId}:${project.artifactId}</name>
-	<description>Microservice service sales</description>
+	<description>Microservice securityprofile</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -28,388 +28,25 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
-		<commons-compress.version>1.26.0</commons-compress.version>
-		<spring-cloud.version>2022.0.5</spring-cloud.version>
-		<spring-boot.version>3.1.6</spring-boot.version>
-		<snakeyaml.version>2.0</snakeyaml.version>
-		<spring-cloud-sleuth-otel.version>1.1.0-M6</spring-cloud-sleuth-otel.version>
-		<maven-pmd-plugin.version>3.19.0</maven-pmd-plugin.version>
-		<maven-project-info-reports-plugin.version>3.4.1</maven-project-info-reports-plugin.version>
-		<sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 	</properties>
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-dependencies</artifactId>
-				<version>${spring-boot.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.commons</groupId>
-				<artifactId>commons-compress</artifactId>
-				<version>${commons-compress.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
-
 	<dependencies>
-		<!-- Genesis Multiframework -->
-		<!--<dependency>
-            <groupId>com.tdp.genesis</groupId>
-            <artifactId>genesis-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.tdp.genesis</groupId>
-            <artifactId>genesis-spring-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.tdp.genesis</groupId>
-            <artifactId>genesis-spring-web-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>com.tdp.genesis</groupId>
-            <artifactId>genesis-spring-error-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.tdp.genesis</groupId>
-            <artifactId>genesis-spring-openapi-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.tdp.genesis</groupId>
-            <artifactId>genesis-spring-audit-starter</artifactId>
-        </dependency>-->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>6.0.14</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-commons</artifactId>
-			<version>3.1.6</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>3.1.6</version>
-		</dependency>
-		<dependency>
-			<groupId>jakarta.persistence</groupId>
-			<artifactId>jakarta.persistence-api</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-annotations</artifactId>
-			<version>2.15.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mapstruct</groupId>
-			<artifactId>mapstruct</artifactId>
-			<version>1.5.5.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.26</version>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok-mapstruct-binding</artifactId>
-			<version>0.2.0</version>
-		</dependency>
-		<!--<dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version>
-        </dependency>
-        -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>6.0.14</version>
-		</dependency>
-
-		<!-- Test Scope -->
-		<dependency>
-			<groupId>org.assertj</groupId>
-			<artifactId>assertj-core</artifactId>
-			<version>3.24.2</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-api</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-test</artifactId>
-			<scope>test</scope>
+			<artifactId>spring-boot-starter-data-r2dbc</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.logging.log4j</groupId>
-                    <artifactId>log4j-to-slf4j</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>jul-to-slf4j</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>-->
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.springframework</groupId>
-					<artifactId>boot:spring-boot-starter-logging</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.slf4j</groupId>
-					<artifactId>slf4j-simple</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>ch.qos.logback</groupId>
-					<artifactId>logback-classic</artifactId>
-				</exclusion>
-			</exclusions>
+			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
-
-		<!-- Runtime Scope -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-
-		<dependency>
-			<groupId>io.projectreactor</groupId>
-			<artifactId>reactor-core</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>io.projectreactor.netty</groupId>
-			<artifactId>reactor-netty</artifactId>
-			<version>1.1.6</version>
-		</dependency>
-		<dependency>
-			<groupId>io.netty</groupId>
-			<artifactId>netty-all</artifactId>
-			<version>4.1.92.Final</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate.validator</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>8.0.0.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish</groupId>
-			<artifactId>jakarta.el</artifactId>
-			<version>4.0.2</version>
-		</dependency>
-		<dependency>
-			<groupId>jakarta.validation</groupId>
-			<artifactId>jakarta.validation-api</artifactId>
-		</dependency>
-		<!-- Springframework -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-		</dependency>
-
-		<!--<dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-        </dependency>-->
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webflux</artifactId>
-		</dependency>
-
-		<!-- Springframework spring-boot -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot</artifactId>
-			<version>3.1.6</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-autoconfigure</artifactId>
-		</dependency>
-
-		<!--<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>-->
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-webflux</artifactId>
-			<version>3.1.6</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-reactor-netty</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-
-		<!-- Open Api -->
-
-		<dependency>
-			<groupId>javax.annotation</groupId>
-			<artifactId>javax.annotation-api</artifactId>
-			<version>1.3.2</version>
-		</dependency>
-		<!-- Open Api -->
-		<!-- update dependencies -->
-		<!--<dependency>
-            <groupId>io.swagger.core.v3</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <version>2.2.8</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.15.3</version>
-        </dependency>-->
-		<dependency>
-			<groupId>io.swagger.core.v3</groupId>
-			<artifactId>swagger-annotations-jakarta</artifactId>
-			<version>2.2.9</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>6.0.14</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-junit-jupiter</artifactId>
-			<version>4.8.1</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.reactivestreams</groupId>
-			<artifactId>reactive-streams</artifactId>
-			<version>1.0.4</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>2.0.9</version>
-		</dependency>
-		<!--<dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>2.0.0-alpha0</version>
-            <scope>runtime</scope>
-        </dependency>-->
-		<!-- update dependencies -->
-		<!-- Dependencias Informix -->
-		<!--<dependency>
-            <groupId>com.ibm.informix</groupId>
-            <artifactId>jdbc</artifactId>
-            <version>4.50.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.orm</groupId>
-            <artifactId>hibernate-community-dialects</artifactId>
-            <version>6.1.7.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate.orm</groupId>
-            <artifactId>hibernate-core</artifactId>
-            <version>6.1.7.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-        </dependency>-->
-		<!--<dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-commons</artifactId>
-            <version>3.0.2</version>
-        </dependency>-->
-		<!-- Dependencias R2DBC Postgress -->
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-r2dbc</artifactId>
-			<version>3.0.4</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-r2dbc</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.7.2</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -418,61 +55,49 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-relational</artifactId>
-			<version>3.0.4</version>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.6.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-annotations-jakarta -->
+		<dependency>
+			<groupId>io.swagger.core.v3</groupId>
+			<artifactId>swagger-annotations-jakarta</artifactId>
+			<version>2.2.28</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/jakarta.validation/jakarta.validation-api -->
+		<dependency>
+			<groupId>jakarta.validation</groupId>
+			<artifactId>jakarta.validation-api</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/jakarta.persistence/jakarta.persistence-api -->
+		<dependency>
+			<groupId>jakarta.persistence</groupId>
+			<artifactId>jakarta.persistence-api</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>1.3.2</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-commons</artifactId>
-			<version>3.0.2</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
 		</dependency>
-		<!-- Dependencias R2DBC Postgress -->
-		<!-- Test -->
 		<dependency>
 			<groupId>io.projectreactor</groupId>
 			<artifactId>reactor-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.15.3</version>
-		</dependency>
-
-		<!-- -->
-		<!-- KAFKA -->
-		<!--<dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka</artifactId>
-            <version>3.0.10</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.kafka</groupId>
-            <artifactId>kafka-clients</artifactId>
-            <version>3.7.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.avro</groupId>
-            <artifactId>avro</artifactId>
-            <version>1.11.3</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.apache.commons</groupId>
-                    <artifactId>commons-compress</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>-->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-compress</artifactId>
-			<version>1.26.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-tx</artifactId>
-			<version>6.0.14</version>
 		</dependency>
 	</dependencies>
 
@@ -484,14 +109,13 @@
 				<configuration>
 					<annotationProcessorPaths>
 						<path>
-							<groupId>org.mapstruct</groupId>
-							<artifactId>mapstruct-processor</artifactId>
-							<version>1.5.5.Final</version>
-						</path>
-						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
-							<version>1.18.26</version>
+						</path>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>1.6.3</version>
 						</path>
 						<path>
 							<groupId>org.projectlombok</groupId>
@@ -501,225 +125,18 @@
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
-			<!-- Code coverage -->
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal> <!-- Necesario para instrumentar el código -->
-							<goal>report</goal>        <!-- Genera el reporte de cobertura -->
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<!-- Maven enforcer -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-			</plugin>
-
-			<!-- Maven analyzer -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.7.1</version>
-				<executions>
-					<!--<execution>
-                        <id>generate-dependency-tree</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>tree</goal>
-                        </goals>
-                    </execution>-->
-					<execution>
-						<id>analyze</id>
-						<goals>
-							<goal>analyze-only</goal>
-						</goals>
-						<configuration>
-							<failOnWarning>true</failOnWarning>
-							<outputXML>true</outputXML>
-							<ignoredUnusedDeclaredDependencies>
-								<ignoredUnusedDeclaredDependency>com.tdp.genesis:genesis-core:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>com.tdp.genesis:genesis-spring-web-starter:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>com.tdp.genesis:genesis-spring-openapi-starter:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>com.tdp.genesis:genesis-spring-error-starter:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>com.tdp.genesis:genesis-spring-audit-starter:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>jakarta.validation:jakarta.validation-api:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.projectlombok:lombok:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>
-									org.springdoc:springdoc-openapi-starter-webflux-ui:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>
-									org.springframework.boot:spring-boot-starter-actuator:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>
-									org.springframework.boot:spring-boot-starter-test:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>
-									org.springframework.boot:spring-boot-starter-webflux:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.springframework.boot:spring-boot-devtools:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>
-									org.springframework.cloud:spring-cloud-starter-sleuth:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>
-									org.springframework.cloud:spring-cloud-sleuth-otel-autoconfigure:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>
-									io.opentelemetry:opentelemetry-exporter-otlp-trace:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>
-									org.springframework.cloud:spring-cloud-starter-config:jar::
-								</ignoredUnusedDeclaredDependency>
-								<!-- update dependencies -->
-								<ignoredUnusedDeclaredDependency>javax.annotation:javax.annotation-api:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>io.swagger.core.v3:swagger-annotations-jakarta:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>
-									org.springframework.boot:spring-boot-starter-data-r2dbc:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.postgresql:postgresql:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.postgresql:r2dbc-postgresql:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.projectlombok:lombok-mapstruct-binding:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.reactivestreams:reactive-streams:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.springframework.data:spring-data-commons:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.mapstruct:mapstruct:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.mockito:mockito-core:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.mockito:mockito-junit-jupiter:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.slf4j:slf4j-api:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.springframework.data:spring-data-r2dbc:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.springframework.data:spring-data-relational:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>io.projectreactor:reactor-test:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>
-									com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>com.fasterxml.jackson.core:jackson-databind:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>jakarta.annotation:jakarta.annotation-api:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.apache.commons:commons-compress:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>com.ibm.informix:jdbc:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>
-									org.springframework.boot:spring-boot-starter-data-jpa:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.hibernate.orm:hibernate-community-dialects:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.hibernate.orm:hibernate-core:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>com.zaxxer:HikariCP:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>io.projectreactor.netty:reactor-netty:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>ch.qos.logback:logback-classic:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.slf4j:slf4j-simple:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.slf4j:slf4j-api:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.springframework.boot:spring-boot-starter:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>
-									org.springframework.boot:spring-boot-starter-web:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>io.netty:netty-all:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>
-									org.springframework.boot:spring-boot-starter-reactor-netty:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.hibernate.validator:hibernate-validator:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>
-									org.springframework.boot:spring-boot-starter-validation:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.glassfish:jakarta.el:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.springframework:spring-beans:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.springframework.data:spring-data-jpa:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>jakarta.persistence:jakarta.persistence-api:jar::
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.springframework:spring-test:jar:
-								</ignoredUnusedDeclaredDependency>
-								<ignoredUnusedDeclaredDependency>org.springframework:spring-tx:jar::
-								</ignoredUnusedDeclaredDependency>
-								<!-- update dependencies -->
-							</ignoredUnusedDeclaredDependencies>
-							<ignoredNonTestScopedDependencies>
-								<ignoredNonTestScopedDependency>com.tdp.genesis:genesis-core
-								</ignoredNonTestScopedDependency>
-								<ignoredNonTestScopedDependency>org.springframework:spring-webflux
-								</ignoredNonTestScopedDependency>
-								<ignoredNonTestScopedDependency>com.fasterxml.jackson.core:jackson-core
-								</ignoredNonTestScopedDependency>
-								<ignoredNonTestScopedDependency>com.fasterxml.jackson.core:jackson-databind
-								</ignoredNonTestScopedDependency>
-								<ignoredNonTestScopedDependency>org.springframework:spring-beans:jar::
-								</ignoredNonTestScopedDependency>
-							</ignoredNonTestScopedDependencies>
-						</configuration>
-					</execution>
-				</executions>
-
-			</plugin>
-
-			<!-- Checkstyle -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-			</plugin>
-
-			<!-- Static code analyse -->
-			<plugin>
-				<groupId>com.github.spotbugs</groupId>
-				<artifactId>spotbugs-maven-plugin</artifactId>
-			</plugin>
-
-			<!-- Git-commit-id -->
-			<plugin>
-				<groupId>pl.project13.maven</groupId>
-				<artifactId>git-commit-id-plugin</artifactId>
-			</plugin>
-
-			<!-- Maven Jar -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-			</plugin>
-
-			<!-- Spring Maven Plugin -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
-
 			<!-- Open Api Plugin -->
 			<plugin>
 				<groupId>org.openapitools</groupId>
@@ -754,80 +171,6 @@
 				</executions>
 			</plugin>
 			<!-- Open Api Plugin -->
-			<!-- Avro -->
-			<!--<plugin>
-                <groupId>org.apache.avro</groupId>
-                <artifactId>avro-maven-plugin</artifactId>
-                <version>1.11.3</version>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>schema</goal>
-                        </goals>
-                        <configuration>
-                            <sourceDirectory>${project.basedir}/src/main/resources/</sourceDirectory>
-                            <outputDirectory>${project.build.directory}/generated-sources</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>-->
 		</plugins>
 	</build>
-
-	<reporting>
-		<plugins>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>${maven-project-info-reports-plugin.version}</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>${checkstyle.plugin.version}</version>
-				<configuration>
-					<configLocation>checkstyle.xml</configLocation>
-					<encoding>UTF-8</encoding>
-					<consoleOutput>true</consoleOutput>
-					<failsOnError>true</failsOnError>
-					<linkXRef>false</linkXRef>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-pmd-plugin</artifactId>
-				<version>${maven-pmd-plugin.version}</version>
-				<configuration>
-					<skipEmptyReport>false</skipEmptyReport>
-					<excludes>
-						<exclude>com/tdp/ms/*/model/thirdparty/**/*</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>com.github.spotbugs</groupId>
-				<artifactId>spotbugs-maven-plugin</artifactId>
-				<version>${spotbugs.plugin.version}</version>
-				<configuration>
-					<foo>bar</foo>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>${jacoco.plugin.version}</version>
-				<configuration>
-					<destFile>${project.basedir}/target/jacoco.exec</destFile>
-					<append>true</append>
-					<excludes>
-						<exclude>com/tdp/ms/*/model/thirdparty/**/*</exclude>
-						<exclude>com/tdp/ms/*/config/*</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-		</plugins>
-	</reporting>
-
 </project>

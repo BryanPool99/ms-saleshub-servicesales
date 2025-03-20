@@ -10,9 +10,10 @@ spring:
     name: servicesales
   main:
     allow-bean-definition-overriding: true
+    web-application-type: reactive
   r2dbc:
-    url: r2dbc:postgresql://ep-autumn-poetry-a2xxj9qc-pooler.eu-central-1.aws.neon.tech:5432/saleshub_dev
-    username: neondb_owner
+    url: 'r2dbc:postgresql://neondb_owner:npg_MwjJ80dHCGIx@ep-autumn-poetry-a2xxj9qc-pooler.eu-central-1.aws.neon.tech/saleshub_dev?sslmode=require&searchPath=usr_sales,public'
+    username: 'neondb_owner'
     password: 'npg_MwjJ80dHCGIx'
     pool:
       enabled: true
@@ -20,6 +21,5 @@ spring:
       max-size: 10
   config:
     import: optional:configserver:http://localhost:8888/
-
 
 logging.level.org.springframework.data.r2dbc: DEBUG
