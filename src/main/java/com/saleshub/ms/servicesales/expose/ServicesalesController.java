@@ -42,8 +42,8 @@ public class ServicesalesController implements SalesApi {
     public Mono<ResponseEntity<RetrievePaymentType>> retrievePaymentType(
             String unICAServiceId, String unICAApplication, String UNICA_PID, String unICAUser, String authorization,
             String filter, String sort, Integer limit, Integer offset, ServerWebExchange exchange) {
-        return SalesApi.super.retrievePaymentType(unICAServiceId, unICAApplication, UNICA_PID, unICAUser,
-                authorization, filter,sort, limit, offset, exchange);
+        return paymentTypeService.listPaymentType(filter, limit, offset, sort, unICAUser)
+                .map(ResponseEntity::ok);
     }
 
     @Override

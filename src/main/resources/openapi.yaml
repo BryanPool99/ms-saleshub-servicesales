@@ -269,6 +269,10 @@ components:
           type: string
           description: "Payment Type Description"
           example: "paypal"
+        status:
+          type: integer
+          description: "Payment Type status"
+          example: 1
         additionalData:
           type: array
           items:

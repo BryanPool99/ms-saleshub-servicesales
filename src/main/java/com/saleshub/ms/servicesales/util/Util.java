@@ -1,9 +1,11 @@
 package com.saleshub.ms.servicesales.util;
 
 import com.saleshub.ms.servicesales.util.constants.Constants;
+import com.saleshub.ms.servicesales.util.enums.paymenttype.PaymentTypeStrategyTypeEnum;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -25,5 +27,17 @@ public class Util {
                         ))
                 )
                 .orElseGet(HashMap::new);
+    }
+
+    public static Map<String, PaymentTypeStrategyTypeEnum> getPaymentTypeStrategic() {
+        return Arrays.stream(PaymentTypeStrategyTypeEnum.values())
+                .collect(Collectors.toMap(PaymentTypeStrategyTypeEnum::getValue,
+                        paymentTypeStrategyTypeEnum -> paymentTypeStrategyTypeEnum));
+    }
+
+    public static <T> String emptyValue(T value) {
+        return Optional.ofNullable(value)
+                .map(String::valueOf)
+                .orElse("");
     }
 }
