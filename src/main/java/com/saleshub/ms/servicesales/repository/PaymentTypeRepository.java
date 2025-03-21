@@ -37,4 +37,6 @@ public interface PaymentTypeRepository extends R2dbcRepository<PaymentTypeEntity
 
     @Query(value = PaymentTypeQueryConstants.PAYMENT_TYPE_QUERY_GET_BY_ID)
     Mono<PaymentTypeDto> findPaymentTypeById(Integer paymentTypeId);
+
+    Mono<PaymentTypeEntity> findByPaymentTypeId(Integer paymentTypeId);
 }

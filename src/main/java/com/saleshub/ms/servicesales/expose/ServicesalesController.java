@@ -3,11 +3,9 @@ package com.saleshub.ms.servicesales.expose;
 import com.saleshub.ms.servicesales.api.SalesApi;
 import com.saleshub.ms.servicesales.business.PaymentTypeService;
 import com.saleshub.ms.servicesales.business.SalesService;
-import com.saleshub.ms.servicesales.model.CreateSaleRequest;
-import com.saleshub.ms.servicesales.model.RetrievePaymentType;
-import com.saleshub.ms.servicesales.model.RetrieveSalesDetailResponse;
-import com.saleshub.ms.servicesales.model.RetrieveSalesHistoryResponse;
+import com.saleshub.ms.servicesales.model.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +37,14 @@ public class ServicesalesController implements SalesApi {
     }
 
     @Override
+    public Mono<ResponseEntity<RetrieveSalesDetailResponse>> retrieveSalesDetail(
+            String unICAServiceId, String unICAApplication, String UNICA_PID, String unICAUser, String authorization,
+            String filter, ServerWebExchange exchange) {
+        return SalesApi.super.retrieveSalesDetail(unICAServiceId, unICAApplication, UNICA_PID, unICAUser,
+                authorization, filter, exchange);
+    }
+
+    @Override
     public Mono<ResponseEntity<RetrievePaymentType>> retrievePaymentType(
             String unICAServiceId, String unICAApplication, String UNICA_PID, String unICAUser, String authorization,
             String filter, String sort, Integer limit, Integer offset, ServerWebExchange exchange) {
@@ -47,10 +53,21 @@ public class ServicesalesController implements SalesApi {
     }
 
     @Override
-    public Mono<ResponseEntity<RetrieveSalesDetailResponse>> retrieveSalesDetail(
+    public Mono<ResponseEntity<Void>> createPaymentType(
             String unICAServiceId, String unICAApplication, String UNICA_PID, String unICAUser, String authorization,
-            String filter, ServerWebExchange exchange) {
-        return SalesApi.super.retrieveSalesDetail(unICAServiceId, unICAApplication, UNICA_PID, unICAUser,
-                authorization, filter, exchange);
+            Mono<CreatePaymentRequest> createPaymentRequest, ServerWebExchange exchange) {
+        return createPaymentRequest
+                .flatMap(request -> paymentTypeService.createPaymentType(request, unICAUser))
+                .then(Mono.just(ResponseEntity.status(HttpStatus.CREATED).build()));
+    }
+
+    @Override
+    public Mono<ResponseEntity<Void>> updatePaymentType(
+            String unICAServiceId, String unICAApplication, String UNICA_PID, String unICAUser, Integer paymentTypeId,
+            String authorization, Mono<UpdatePaymentTypeRequest> updatePaymentTypeRequest, ServerWebExchange exchange) {
+        return updatePaymentTypeRequest
+                .flatMap(request ->
+                        paymentTypeService.updatePaymentType(paymentTypeId, request, unICAUser))
+                .then(Mono.just(ResponseEntity.noContent().build()));
     }
 }
